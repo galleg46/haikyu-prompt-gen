@@ -159,6 +159,6 @@ function HaikyuGenerator() {
             </Box>
         </Box>
     );
-};
+}
 
 export default HaikyuGenerator;
