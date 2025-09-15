@@ -1,0 +1,25 @@
+.columns-container {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 12px;
+    align-items: start;
+}
+
+.column-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+/* responsive */
+@media (max-width: 1200px) {
+    .columns-container { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 800px) {
+    .columns-container { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+    .columns-container { grid-template-columns: 1fr; }
+}
