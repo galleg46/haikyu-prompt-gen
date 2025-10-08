@@ -86,24 +86,55 @@ function HaikyuGenerator() {
     };
 
     return (
-        <Box sx={{ p: 2 }}>
+        <Box sx={{ p: 2, height: '100vh', overflow: 'auto', backgroundColor: '#54495c' }}>
+
+            <Box sx={{ mt: 3 }}>
+                <Typography align="center" variant="h5" sx={{ color: 'white'}}>Generate pairing</Typography>
+                <Paper sx={{ p: 2, mt: 1, mx: 'auto', textAlign: 'center', maxWidth: 400, whiteSpace: 'pre-wrap' }}>
+                    {lastResult ? (
+                        Object.entries(lastResult).map(([k, v]) => (
+                            <div key={k}>
+                                <strong>{k}:</strong> {String(v)}
+                            </div>
+                        ))
+                    ) : (
+                        <div>No result yet — toggle some columns & select items, then press Randomize.</div>
+                    )}
+                </Paper>
+            </Box>
+
+            <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2, mb: 2, gap: 2 }}>
+                <Button variant="contained" color="primary" onClick={handleRandomize}>
+                    Randomize
+                </Button>
+                <Button
+                    variant="outlined"
+                    onClick={() => {
+                        setSelectedItems(columnsConfig.map(() => []));
+                        setLastResult(null);
+                    }}
+                >
+                    Clear selections
+                </Button>
+            </Box>
+
             <div className="columns-container">
                 {columnsConfig.map((col, colIndex) => {
                     // source list to render as checkboxes
                     const options = col.type === 'teams' ? Teams : (col.list || []);
                     return (
-                        <Paper key={col.id} elevation={1} sx={{ p: 1, maxHeight: 320, overflowY: 'auto' }}>
+                        <Paper key={col.id} elevation={1} square={false} sx={{ p: 1, maxHeight: 336, overflowY: 'auto', overflowX: 'hidden' }}>
                             <div className="column-header">
                                 <Typography variant="subtitle2">{col.label}</Typography>
                                 <FormControlLabel
                                     control={
-                                        <Switch
+                                        <Switch sx={{ marginRight: 0.5}}
                                             size="small"
                                             checked={activeColumns[colIndex]}
                                             onChange={() => toggleInclude(colIndex)}
                                         />
                                     }
-                                    label="Include"
+                                    label={<Typography variant="body2" sx={{ display: 'flex', alignItems: 'center', lineHeight: 1.2}}>Include</Typography>}
                                     labelPlacement="start"
                                 />
                             </div>
@@ -127,36 +158,6 @@ function HaikyuGenerator() {
                     );
                 })}
             </div>
-
-            <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2, gap: 2 }}>
-                <Button variant="contained" color="primary" onClick={handleRandomize}>
-                    Randomize
-                </Button>
-                <Button
-                    variant="outlined"
-                    onClick={() => {
-                        setSelectedItems(columnsConfig.map(() => []));
-                        setLastResult(null);
-                    }}
-                >
-                    Clear selections
-                </Button>
-            </Box>
-
-            <Box sx={{ mt: 3 }}>
-                <Typography variant="h6">Randomized result</Typography>
-                <Paper sx={{ p: 2, mt: 1, whiteSpace: 'pre-wrap' }}>
-                    {lastResult ? (
-                        Object.entries(lastResult).map(([k, v]) => (
-                            <div key={k}>
-                                <strong>{k}:</strong> {String(v)}
-                            </div>
-                        ))
-                    ) : (
-                        <div>No result yet — toggle some columns & select items, then press Randomize.</div>
-                    )}
-                </Paper>
-            </Box>
         </Box>
     );
 }
