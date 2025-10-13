@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useRef } from "react";
+import React, {useState} from "react";
 import './App.css';
 import {Teams, TeamPlayers} from './data/haikyudata';
 import {Tropes, Conflict, Relationship_Dynamics, Setting_Generes} from "./data/prompts";
