@@ -4,6 +4,8 @@ import {Teams, TeamPlayers} from './data/haikyudata';
 import {Tropes, Conflict, Relationship_Dynamics, Setting_Generes} from "./data/prompts";
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button';
+import IconButton from '@mui/material/IconButton';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Checkbox from '@mui/material/Checkbox';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from "@mui/material/FormControlLabel";
@@ -28,11 +30,30 @@ function HaikyuGenerator() {
 
     // which checkboxes are selected per column
     const [selectedItems, setSelectedItems] = useState(
-        //columnsConfig.map(() => [])
         columnsConfig.map((col) => {
             if (col.type === 'teams') return [...Teams];
+
             return col.list ? [...col.list] : [];
         })
+    );
+
+    // store selected characters per team for each "teams" column
+    const [selectedCharacters, setSelectedCharacters] = useState(
+        columnsConfig.map((col) => {
+            if (col.type !== 'teams') return null;
+
+            const teamObj = {};
+            Teams.forEach((team) => {
+                teamObj[team] = [ ...(TeamPlayers[team] || [])]; // all characters pre-selected by default
+            });
+
+            return teamObj;
+        })
+    );
+
+    // store which teams are expanded to show children
+    const [expandedTeams, setExpandedTeams] = useState(
+        columnsConfig.map((col) => (col.type === 'teams' ? {} : null))
     );
 
     // randomized result shown in UI
@@ -48,9 +69,32 @@ function HaikyuGenerator() {
             const colSel = prev[colIndex];
             const exists = colSel.includes(item);
             const newColSel = exists ? colSel.filter((x) => x !== item) : [...colSel, item];
+
             return prev.map((arr, i) => (i === colIndex ? newColSel : arr));
         });
     };
+
+    // handle toggling characters for a team
+    const handleCharacterCheckboxChange = (colIndex, team, character) => {
+        setSelectedCharacters((prev) => {
+            const current = prev[colIndex][team] || [];
+            const exists = current.includes(character);
+            const updated = exists ? current.filter((c) => c !== character) : [...current, character];
+            const newCol = { ...prev[colIndex], [team]: updated };
+
+            return prev.map((val, i) => (i === colIndex ? newCol : val));
+        });
+    };
+
+    // toggle team expansion
+    const toggleTeamExpansion = (colIndex, team) => {
+        setExpandedTeams((prev) => {
+            const current = prev[colIndex][team] || false;
+            const newCol = { ...prev[colIndex], [team]: !current };
+
+            return prev.map((val, i) => (i === colIndex ? newCol : val));
+        })
+    }
 
     const pickRandom = (arr) => {
         if (!arr || arr.length === 0) return null;
@@ -67,8 +111,11 @@ function HaikyuGenerator() {
                 // if there are selected teams for this column, use them; otherwise fallback to all Teams
                 const teamsToUse = selectedItems[index].length ? selectedItems[index] : Teams;
 
-                // turn the team list into a player pool
+                // get the character pool for selected teams
                 const playerPool = teamsToUse.flatMap((teamName) => {
+                    const selectedCharsForTeam = selectedCharacters[index]?.[teamName];
+                    if (selectedCharsForTeam && selectedCharsForTeam.length > 0) return selectedCharsForTeam;
+
                     // TeamPlayers keys may not match spacing/casing
                     // try direct, then fallback to space-free key
                     return TeamPlayers[teamName] || TeamPlayers[teamName.replace(/\s+/g, '')] || [];
@@ -104,13 +151,25 @@ function HaikyuGenerator() {
             </Box>
 
             <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2, mb: 2, gap: 2 }}>
-                <Button variant="contained" color="primary" onClick={handleRandomize}>
-                    Randomize
-                </Button>
+                <Button variant="contained" color="primary" onClick={handleRandomize}>Randomize</Button>
                 <Button
                     variant="outlined"
                     onClick={() => {
                         setSelectedItems(columnsConfig.map(() => []));
+
+                        // reset selectedCharacters and expandedTeams
+                        setSelectedCharacters(columnsConfig.map((col) => {
+                            if (col.type !== 'teams') return null;
+
+                            const teamObj = {};
+                            Teams.forEach((team) => {
+                                teamObj[team] = [...(TeamPlayers[team] || [])];
+                            });
+
+                            return teamObj;
+                        }));
+
+                        setExpandedTeams(columnsConfig.map((col) => (col.type === 'teams' ? {} : null)));
                         setLastResult(null);
                     }}
                 >
@@ -139,21 +198,74 @@ function HaikyuGenerator() {
                                 />
                             </div>
 
-                            <FormGroup>
-                                {options.map((opt) => (
-                                    <FormControlLabel
-                                        key={opt}
-                                        control={
-                                            <Checkbox
-                                                size="small"
-                                                checked={selectedItems[colIndex].includes(opt)}
-                                                onChange={() => handleCheckboxChange(colIndex, opt)}
+                            {col.type === 'teams' ? (
+                                // nested character selection
+                                <div>
+                                    {options.map((team) => (
+                                        <Box key={team} sx={{mb: 1}}>
+                                            <FormControlLabel
+                                                control={
+                                                    <Checkbox
+                                                        size="small"
+                                                        checked={selectedItems[colIndex].includes(team)}
+                                                        onChange={() => handleCheckboxChange(colIndex, team)}
+                                                    />
+                                                }
+                                                label={team}
                                             />
-                                        }
-                                        label={opt}
-                                    />
-                                ))}
-                            </FormGroup>
+
+                                            {selectedItems[colIndex].includes(team) && (
+                                                <IconButton
+                                                    size="small"
+                                                    onClick={() => toggleTeamExpansion(colIndex, team)}
+                                                    sx={{ ml: 3 }}
+                                                >
+                                                    <ExpandMoreIcon
+                                                        sx={{
+                                                            transform: expandedTeams[colIndex]?.[team] ? 'rotate(180deg)' : 'rotate(0deg)',
+                                                            transition: 'transform 0.2s'
+                                                        }}
+                                                    />
+                                                </IconButton>
+                                            )}
+
+                                            {selectedItems[colIndex].includes(team) && expandedTeams[colIndex]?.[team] && (
+                                                <FormGroup sx={{pl: 3}}> {/* indent child checkboxes */}
+                                                    {(TeamPlayers[team] || []).map((char) => (
+                                                        <FormControlLabel
+                                                            key={char}
+                                                            control={
+                                                                <Checkbox
+                                                                    size="small"
+                                                                    checked={selectedCharacters[colIndex]?.[team]?.includes(char) || false}
+                                                                    onChange={() => handleCharacterCheckboxChange(colIndex, team, char)}
+                                                                />
+                                                            }
+                                                            label={char}
+                                                        />
+                                                    ))}
+                                                </FormGroup>
+                                            )}
+                                        </Box>
+                                    ))}
+                                </div>
+                            ) : (
+                                <FormGroup>
+                                    {options.map((opt) => (
+                                        <FormControlLabel
+                                            key={opt}
+                                            control={
+                                                <Checkbox
+                                                    size="small"
+                                                    checked={selectedItems[colIndex].includes(opt)}
+                                                    onChange={() => handleCheckboxChange(colIndex, opt)}
+                                                />
+                                            }
+                                            label={opt}
+                                        />
+                                    ))}
+                                </FormGroup>
+                            )}
                         </Paper>
                     );
                 })}
