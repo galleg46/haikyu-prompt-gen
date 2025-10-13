@@ -134,7 +134,6 @@ function HaikyuGenerator() {
 
     return (
         <Box sx={{ p: 2, height: '100vh', overflow: 'auto', backgroundColor: '#54495c' }}>
-
             <Box sx={{ mt: 3 }}>
                 <Typography align="center" variant="h5" sx={{ color: 'white'}}>Generate pairing</Typography>
                 <Paper sx={{ p: 2, mt: 1, mx: 'auto', textAlign: 'center', maxWidth: 400, whiteSpace: 'pre-wrap' }}>
@@ -156,19 +155,14 @@ function HaikyuGenerator() {
                     variant="outlined"
                     onClick={() => {
                         setSelectedItems(columnsConfig.map(() => []));
-
-                        // reset selectedCharacters and expandedTeams
                         setSelectedCharacters(columnsConfig.map((col) => {
                             if (col.type !== 'teams') return null;
-
                             const teamObj = {};
                             Teams.forEach((team) => {
                                 teamObj[team] = [...(TeamPlayers[team] || [])];
                             });
-
                             return teamObj;
                         }));
-
                         setExpandedTeams(columnsConfig.map((col) => (col.type === 'teams' ? {} : null)));
                         setLastResult(null);
                     }}
@@ -179,7 +173,6 @@ function HaikyuGenerator() {
 
             <div className="columns-container">
                 {columnsConfig.map((col, colIndex) => {
-                    // source list to render as checkboxes
                     const options = col.type === 'teams' ? Teams : (col.list || []);
                     return (
                         <Paper key={col.id} elevation={1} square={false} sx={{ p: 1, maxHeight: 336, overflowY: 'auto', overflowX: 'hidden' }}>
@@ -187,50 +180,47 @@ function HaikyuGenerator() {
                                 <Typography variant="subtitle2">{col.label}</Typography>
                                 <FormControlLabel
                                     control={
-                                        <Switch sx={{ marginRight: 0.5}}
-                                            size="small"
-                                            checked={activeColumns[colIndex]}
-                                            onChange={() => toggleInclude(colIndex)}
-                                        />
+                                        <Switch sx={{ marginRight: 0.5 }} size="small" checked={activeColumns[colIndex]} onChange={() => toggleInclude(colIndex)} />
                                     }
-                                    label={<Typography variant="body2" sx={{ display: 'flex', alignItems: 'center', lineHeight: 1.2}}>Include</Typography>}
+                                    label={<Typography variant="body2" sx={{ display: 'flex', alignItems: 'center', lineHeight: 1.2 }}>Include</Typography>}
                                     labelPlacement="start"
                                 />
                             </div>
 
                             {col.type === 'teams' ? (
-                                // nested character selection
                                 <div>
                                     {options.map((team) => (
-                                        <Box key={team} sx={{mb: 1}}>
-                                            <FormControlLabel
-                                                control={
-                                                    <Checkbox
+                                        <Box key={team} sx={{ mb: 1 }}>
+                                            <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                                                <FormControlLabel
+                                                    control={
+                                                        <Checkbox
+                                                            size="small"
+                                                            checked={selectedItems[colIndex].includes(team)}
+                                                            onChange={() => handleCheckboxChange(colIndex, team)}
+                                                        />
+                                                    }
+                                                    label={team}
+                                                    sx={{ mr: 0 }}
+                                                />
+                                                {selectedItems[colIndex].includes(team) && (
+                                                    <IconButton
                                                         size="small"
-                                                        checked={selectedItems[colIndex].includes(team)}
-                                                        onChange={() => handleCheckboxChange(colIndex, team)}
-                                                    />
-                                                }
-                                                label={team}
-                                            />
-
-                                            {selectedItems[colIndex].includes(team) && (
-                                                <IconButton
-                                                    size="small"
-                                                    onClick={() => toggleTeamExpansion(colIndex, team)}
-                                                    sx={{ ml: 3 }}
-                                                >
-                                                    <ExpandMoreIcon
-                                                        sx={{
-                                                            transform: expandedTeams[colIndex]?.[team] ? 'rotate(180deg)' : 'rotate(0deg)',
-                                                            transition: 'transform 0.2s'
-                                                        }}
-                                                    />
-                                                </IconButton>
-                                            )}
+                                                        onClick={() => toggleTeamExpansion(colIndex, team)}
+                                                        sx={{ p: 0, ml: 0.5 }}
+                                                    >
+                                                        <ExpandMoreIcon
+                                                            sx={{
+                                                                transform: expandedTeams[colIndex]?.[team] ? 'rotate(180deg)' : 'rotate(0deg)',
+                                                                transition: 'transform 0.2s'
+                                                            }}
+                                                        />
+                                                    </IconButton>
+                                                )}
+                                            </Box>
 
                                             {selectedItems[colIndex].includes(team) && expandedTeams[colIndex]?.[team] && (
-                                                <FormGroup sx={{pl: 3}}> {/* indent child checkboxes */}
+                                                <FormGroup sx={{ pl: 4, mt: 0.5 }}>
                                                     {(TeamPlayers[team] || []).map((char) => (
                                                         <FormControlLabel
                                                             key={char}
