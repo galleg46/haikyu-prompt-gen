@@ -1,7 +1,7 @@
 // TODO: have this data accessible via database calls
 
-export const Teams = ['Karasuno', 'Nekoma', 'Aoba Josai', 'Date Tech', 'Fukurodani', 'Shiratorizawa',
-                       'Jozenji', 'Inarizaki'];
+export const Teams = ['Karasuno', 'Nekoma', 'Aoba Johsai', 'Date Tech', 'Fukurodani', 'Shiratorizawa',
+                       'Johzenji', 'Inarizaki'];
 
 
 export const TeamPlayers = {
@@ -28,7 +28,67 @@ export const TeamPlayers = {
         "Sō Inuoka",
         "Tamahiko Teshiro",
         "Lev Haiba",
-        "Yūki Shibayama"]
+        "Yūki Shibayama"],
+    "Aoba Johsai": [
+        "Tōru Oikawa",
+        "Issei Matsukawa",
+        "Takahiro Hanamaki",
+        "Hajime Iwaizumi",
+        "Shigeru Yahaba",
+        "Shinji Watari",
+        "Yūtarō Kindaichi",
+        "Akira Kunimi",
+        "Kentarō Kyōtani"],
+    "Date Tech": [
+        "Yasushi Kamasaki",
+        "Kaname Moniwa",
+        "Takehito Sasaya",
+        "Takanobu Aone",
+        "Kenji Futakuchi",
+        "Yutaka Obara",
+        "Kanji Koganegawa",
+        "Tarō Onagawa",
+        "Jingo Fukiage",
+        "Kōsuke Sakunami"],
+    Fukurodani: [
+        "Tatsuki Washio",
+        "Yamato Sarukui",
+        "Kōtarō Bokuto",
+        "Keiji Akaashi",
+        "Akinori Konoha",
+        "Shūichi Anahori",
+        "Haruki Komi",
+        "Wataru Onaga"],
+    Shiratorizawa: [
+        "Wakatoshi Ushijima",
+        "Eita Semi",
+        "Reon Ōhira",
+        "Satori Tendō",
+        "Tsutomu Goshiki",
+        "Kenjirō Shirabu",
+        "Taichi Kawanishi",
+        "Kai Akakura",
+        "Hayato Yamagata",
+        "Yūshō Sagae"],
+    Johzenji: [
+        "Yūji Terushima",
+        "Kazuma Bobata",
+        "Takeharu Futamata",
+        "Katsumichi Higashiyama",
+        "Rintarō Numajiri",
+        "Nobuyoshi Īzaka",
+        "Arata Tsuchiyu"],
+    Inarizaki: [
+        "Shinsuke Kita",
+        "Ren Ōmimi",
+        "Aran Ojiro",
+        "Hitoshi Ginjima",
+        "Atsumu Miya",
+        "Rintarō Suna",
+        "Osamu Miya",
+        "Yūto Kosaku",
+        "Heisuke Riseki",
+        "Michinari Akagi"]
 };
 
 
