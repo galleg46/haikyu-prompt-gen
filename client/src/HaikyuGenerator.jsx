@@ -11,7 +11,6 @@ import Paper from '@mui/material/Paper';
 import Switch from '@mui/material/Switch';
 import Typography from '@mui/material/Typography';
 
-
 function HaikyuGenerator() {
     const columnsConfig = [
         { id: 'character-1', label: 'Character 1', type: 'teams' },
