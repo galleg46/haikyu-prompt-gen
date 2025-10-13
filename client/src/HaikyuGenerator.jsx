@@ -98,7 +98,7 @@ function HaikyuGenerator() {
                             </div>
                         ))
                     ) : (
-                        <div>No result yet — toggle some columns & select items, then press Randomize.</div>
+                        <div>Toggle some columns & select items, then press Randomize.</div>
                     )}
                 </Paper>
             </Box>
