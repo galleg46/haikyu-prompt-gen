@@ -173,10 +173,19 @@ function HaikyuGenerator() {
 
             <div className="columns-container">
                 {columnsConfig.map((col, colIndex) => {
-                    const options = col.type === 'teams' ? Teams : (col.list || []);
+                    const options = col.type === 'teams' ? [...Teams].sort() : (col.list.sort() || []);
                     return (
-                        <Paper key={col.id} elevation={1} square={false} sx={{ p: 1, maxHeight: 336, overflowY: 'auto', overflowX: 'hidden' }}>
-                            <div className="column-header">
+                        <Paper key={col.id} elevation={1} square={false} sx={{ p: 0, maxHeight: 336, overflowY: 'auto', overflowX: 'hidden', position: 'relative' }}>
+                            <div className="column-header" 
+                                 style={{
+                                    position: 'sticky',
+                                    top: 0,
+                                    backgroundColor: 'white',
+                                    zIndex: 1,
+                                    padding: '8px',
+                                    marginBottom: 0,
+                                    borderBottom: '1px solid #e0e0e0'
+                                 }}>
                                 <Typography variant="subtitle2">{col.label}</Typography>
                                 <FormControlLabel
                                     control={
@@ -186,76 +195,77 @@ function HaikyuGenerator() {
                                     labelPlacement="start"
                                 />
                             </div>
-
-                            {col.type === 'teams' ? (
-                                <div>
-                                    {options.map((team) => (
-                                        <Box key={team} sx={{ mb: 1 }}>
-                                            <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                                                <FormControlLabel
-                                                    control={
-                                                        <Checkbox
+                            <div style={{ padding: '8px' }}>
+                                {col.type === 'teams' ? (
+                                    <div>
+                                        {options.map((team) => (
+                                            <Box key={team} sx={{ mb: 1 }}>
+                                                <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                                                    <FormControlLabel
+                                                        control={
+                                                            <Checkbox
+                                                                size="small"
+                                                                checked={selectedItems[colIndex].includes(team)}
+                                                                onChange={() => handleCheckboxChange(colIndex, team)}
+                                                            />
+                                                        }
+                                                        label={team}
+                                                        sx={{ mr: 0 }}
+                                                    />
+                                                    {selectedItems[colIndex].includes(team) && (
+                                                        <IconButton
                                                             size="small"
-                                                            checked={selectedItems[colIndex].includes(team)}
-                                                            onChange={() => handleCheckboxChange(colIndex, team)}
-                                                        />
-                                                    }
-                                                    label={team}
-                                                    sx={{ mr: 0 }}
-                                                />
-                                                {selectedItems[colIndex].includes(team) && (
-                                                    <IconButton
-                                                        size="small"
-                                                        onClick={() => toggleTeamExpansion(colIndex, team)}
-                                                        sx={{ p: 0, ml: 0.5 }}
-                                                    >
-                                                        <ExpandMoreIcon
-                                                            sx={{
-                                                                transform: expandedTeams[colIndex]?.[team] ? 'rotate(180deg)' : 'rotate(0deg)',
-                                                                transition: 'transform 0.2s'
-                                                            }}
-                                                        />
-                                                    </IconButton>
+                                                            onClick={() => toggleTeamExpansion(colIndex, team)}
+                                                            sx={{ p: 0, ml: 0.5 }}
+                                                        >
+                                                            <ExpandMoreIcon
+                                                                sx={{
+                                                                    transform: expandedTeams[colIndex]?.[team] ? 'rotate(180deg)' : 'rotate(0deg)',
+                                                                    transition: 'transform 0.2s'
+                                                                }}
+                                                            />
+                                                        </IconButton>
+                                                    )}
+                                                </Box>
+
+                                                {selectedItems[colIndex].includes(team) && expandedTeams[colIndex]?.[team] && (
+                                                    <FormGroup sx={{ pl: 4, mt: 0.5 }}>
+                                                        {(TeamPlayers[team].sort() || []).map((char) => (
+                                                            <FormControlLabel
+                                                                key={char}
+                                                                control={
+                                                                    <Checkbox
+                                                                        size="small"
+                                                                        checked={selectedCharacters[colIndex]?.[team]?.includes(char) || false}
+                                                                        onChange={() => handleCharacterCheckboxChange(colIndex, team, char)}
+                                                                    />
+                                                                }
+                                                            label={char}
+                                                            />
+                                                        ))}
+                                                    </FormGroup>
                                                 )}
                                             </Box>
-
-                                            {selectedItems[colIndex].includes(team) && expandedTeams[colIndex]?.[team] && (
-                                                <FormGroup sx={{ pl: 4, mt: 0.5 }}>
-                                                    {(TeamPlayers[team] || []).map((char) => (
-                                                        <FormControlLabel
-                                                            key={char}
-                                                            control={
-                                                                <Checkbox
-                                                                    size="small"
-                                                                    checked={selectedCharacters[colIndex]?.[team]?.includes(char) || false}
-                                                                    onChange={() => handleCharacterCheckboxChange(colIndex, team, char)}
-                                                                />
-                                                            }
-                                                            label={char}
-                                                        />
-                                                    ))}
-                                                </FormGroup>
-                                            )}
-                                        </Box>
-                                    ))}
-                                </div>
-                            ) : (
-                                <FormGroup>
-                                    {options.map((opt) => (
-                                        <FormControlLabel
-                                            key={opt}
-                                            control={
-                                                <Checkbox
-                                                    size="small"
-                                                    checked={selectedItems[colIndex].includes(opt)}
-                                                    onChange={() => handleCheckboxChange(colIndex, opt)}
-                                                />
-                                            }
-                                            label={opt}
-                                        />
-                                    ))}
-                                </FormGroup>
-                            )}
+                                        ))}
+                                    </div>
+                                ) : (
+                                    <FormGroup>
+                                        {options.map((opt) => (
+                                            <FormControlLabel
+                                                key={opt}
+                                                control={
+                                                    <Checkbox
+                                                        size="small"
+                                                        checked={selectedItems[colIndex].includes(opt)}
+                                                        onChange={() => handleCheckboxChange(colIndex, opt)}
+                                                    />
+                                                }
+                                                label={opt}
+                                            />
+                                        ))}
+                                    </FormGroup>
+                                )}
+                            </div>
                         </Paper>
                     );
                 })}
