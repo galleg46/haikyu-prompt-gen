@@ -195,6 +195,8 @@ function HaikyuGenerator() {
                                     labelPlacement="start"
                                 />
                             </div>
+
+                            {activeColumns[colIndex] && (
                             <div style={{ padding: '8px' }}>
                                 {col.type === 'teams' ? (
                                     <div>
@@ -266,6 +268,7 @@ function HaikyuGenerator() {
                                     </FormGroup>
                                 )}
                             </div>
+                            )}
                         </Paper>
                     );
                 })}
