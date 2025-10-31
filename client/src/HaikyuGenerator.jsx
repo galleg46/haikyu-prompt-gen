@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import './App.css';
 import {Teams, TeamPlayers} from './data/haikyudata';
 import {Tropes, Conflict, Relationship_Dynamics, Setting_Generes} from "./data/prompts";
+import {CharacterImageMap} from "./utils/characterImageMap";
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
@@ -138,11 +139,21 @@ function HaikyuGenerator() {
                 <Typography align="center" variant="h5" sx={{ color: 'white'}}>Generate pairing</Typography>
                 <Paper sx={{ p: 2, mt: 1, mx: 'auto', textAlign: 'center', maxWidth: 400, whiteSpace: 'pre-wrap' }}>
                     {lastResult ? (
-                        Object.entries(lastResult).map(([k, v]) => (
-                            <div key={k}>
-                                <strong>{k}:</strong> {String(v)}
+                        <>
+                            {Object.entries(lastResult).map(([k, v]) => (
+                                <div key={k}>
+                                    <strong>{k}:</strong> {String(v)}
+                                </div>
+                            ))}
+
+                            <div style={{ marginTop: "16px" }}>
+                                {Object.entries(lastResult).map(([k, v]) =>
+                                    (k === "Character 1" || k === "Character 2") ? (
+                                        <img key={k} src={CharacterImageMap[String(v)]} alt={String(v)} style={{ margin: "5px" }}/>
+                                    ) : null
+                                )}
                             </div>
-                        ))
+                        </>
                     ) : (
                         <div>Toggle some columns & select items, then press Randomize.</div>
                     )}
