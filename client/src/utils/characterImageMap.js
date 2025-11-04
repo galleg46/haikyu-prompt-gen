@@ -82,6 +82,14 @@ import Omimi from '../data/images/inarizaki/Ren_Omimi.webp';
 import Riseki from '../data/images/inarizaki/Riseki.webp';
 import Suna from '../data/images/inarizaki/Suna.webp';
 
+import Chaya from '../data/images/tokonami/Chaya.webp';
+import Haga from '../data/images/tokonami/Haga.webp';
+import Ikejiri from '../data/images/tokonami/Ikejiri.webp';
+import Komaki from '../data/images/tokonami/Komaki.webp';
+import Sakurai from '../data/images/tokonami/Sakurai.webp';
+import Shibuya from '../data/images/tokonami/Shibuya.webp';
+import Tamagawa from '../data/images/tokonami/Tamagawa.webp';
+
 export const CharacterImageMap = {
     "Daichi Sawamura": Daichi,
     "Kōshi Sugawara": Sugawara,
@@ -158,5 +166,12 @@ export const CharacterImageMap = {
     "Osamu Miya": Osamu,
     "Yūto Kosaku": Kosaku,
     "Heisuke Riseki": Riseki,
-    "Michinari Akagi": Akagi
+    "Michinari Akagi": Akagi,
+    "Hikaru Komaki": Komaki,
+    "Kazuma Chaya": Chaya,
+    "Hayato Ikejiri": Ikejiri,
+    "Hiroki Tamagawa": Tamagawa,
+    "Yoshiharu Haga": Haga,
+    "Rikuto Shibuya": Shibuya,
+    "Taiga Sakurai": Sakurai
 };
