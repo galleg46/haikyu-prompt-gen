@@ -114,6 +114,14 @@ import Minamida from '../data/images/kakugawa/Minamida.png';
 import Nurukawa from '../data/images/kakugawa/Nurukawa.jpg';
 import Yuzuru_Komaki from '../data/images/kakugawa/Yuzuru_Komaki.webp';
 
+import Ashiya from '../data/images/ubugawa/Ashiya.jpg';
+import Gora from '../data/images/ubugawa/Gora.png';
+import Isehara from '../data/images/ubugawa/Isehara.webp';
+import Nakagawa from '../data/images/ubugawa/Nakagawa.png';
+import Nanasawa from '../data/images/ubugawa/Nanasawa.jpg';
+import Sengoku from '../data/images/ubugawa/Sengoku.jpg';
+import Yukawa from '../data/images/ubugawa/Yukawa.webp';
+
 export const CharacterImageMap = {
     "Daichi Sawamura": Daichi,
     "Kōshi Sugawara": Sugawara,
@@ -218,5 +226,12 @@ export const CharacterImageMap = {
     "Yuzuru Komaki": Yuzuru_Komaki,
     "Isao Inagaki": Inagaki,
     "Yūdai Hyakuzawa": Hyakuzawa,
-    "Taishi Minamida": Minamida
+    "Taishi Minamida": Minamida,
+    "Masaki Gōra": Gora,
+    "Yōhei Ashiya": Ashiya,
+    "Kengo Nanasawa": Nanasawa,
+    "Shingo Sengoku": Sengoku,
+    "Yūji Isehara": Isehara,
+    "Kōji Yukawa": Yukawa,
+    "Toshimi Nakagawa": Nakagawa
 };
