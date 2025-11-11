@@ -98,6 +98,14 @@ import Naruko from '../data/images/wakutani_minami/Naruko.webp';
 import Akiu from '../data/images/wakutani_minami/Akiu.webp';
 import Matsushima from '../data/images/wakutani_minami/Matsushima.webp';
 
+import Karamatsu from '../data/images/ohgiminami/Karamatsu.webp';
+import Moritake from '../data/images/ohgiminami/Moritake.webp';
+import Natsuse from '../data/images/ohgiminami/Natsuse.png';
+import Oyasu from '../data/images/ohgiminami/Oyasu.webp';
+import Tazawa from '../data/images/ohgiminami/Tazawa.webp';
+import Towada from '../data/images/ohgiminami/Towada.webp';
+import Yokote from '../data/images/ohgiminami/Yokote.webp';
+
 export const CharacterImageMap = {
     "Daichi Sawamura": Daichi,
     "Kōshi Sugawara": Sugawara,
@@ -189,4 +197,11 @@ export const CharacterImageMap = {
     "Teppei Naruko": Naruko,
     "Kazuteru Akiu": Akiu,
     "Tsuyoshi Matsushima": Matsushima,
+    "Yoshiki Towada": Towada,
+    "Takumi Karamatsu": Karamatsu,
+    "Yūki Tazawa": Tazawa,
+    "Ayumu Moritake": Moritake,
+    "Sōma Oyasu": Oyasu,
+    "Ibuki Natsuse": Natsuse,
+    "Shun Yokote": Yokote
 };
