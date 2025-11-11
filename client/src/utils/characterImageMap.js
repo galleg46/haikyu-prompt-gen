@@ -106,6 +106,14 @@ import Tazawa from '../data/images/ohgiminami/Tazawa.webp';
 import Towada from '../data/images/ohgiminami/Towada.webp';
 import Yokote from '../data/images/ohgiminami/Yokote.webp';
 
+import Asamushi from '../data/images/kakugawa/Asamushi.webp';
+import Hyakuzawa from '../data/images/kakugawa/Hyakuzawa.webp';
+import Inagaki from '../data/images/kakugawa/Inagaki.png';
+import Makado from '../data/images/kakugawa/Makado.webp';
+import Minamida from '../data/images/kakugawa/Minamida.png';
+import Nurukawa from '../data/images/kakugawa/Nurukawa.jpg';
+import Yuzuru_Komaki from '../data/images/kakugawa/Yuzuru_Komaki.webp';
+
 export const CharacterImageMap = {
     "Daichi Sawamura": Daichi,
     "Kōshi Sugawara": Sugawara,
@@ -203,5 +211,12 @@ export const CharacterImageMap = {
     "Ayumu Moritake": Moritake,
     "Sōma Oyasu": Oyasu,
     "Ibuki Natsuse": Natsuse,
-    "Shun Yokote": Yokote
+    "Shun Yokote": Yokote,
+    "Yoshiaki Nurukawa": Nurukawa,
+    "Eiji Makado": Makado,
+    "Kaito Asamushi": Asamushi,
+    "Yuzuru Komaki": Yuzuru_Komaki,
+    "Isao Inagaki": Inagaki,
+    "Yūdai Hyakuzawa": Hyakuzawa,
+    "Taishi Minamida": Minamida
 };
