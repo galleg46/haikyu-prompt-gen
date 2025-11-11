@@ -1,7 +1,7 @@
 // TODO: have this data accessible via database calls
 
 export const Teams = ['Karasuno', 'Nekoma', 'Aoba Johsai', 'Date Tech', 'Fukurodani', 'Shiratorizawa',
-                       'Johzenji', 'Tokonami', 'Inarizaki'];
+                       'Johzenji', 'Tokonami', 'Wakutani Minami','Inarizaki'];
 
 
 export const TeamPlayers = {
@@ -86,6 +86,14 @@ export const TeamPlayers = {
         "Yoshiharu Haga",
         "Rikuto Shibuya",
         "Taiga Sakurai"],
+    "Wakutani Minami": [
+        "Takeru Nakashima",
+        "Shunki Kawatabi",
+        "Kazumasa Hanayama",
+        "Yūki Shiroishi",
+        "Teppei Naruko",
+        "Kazuteru Akiu",
+        "Tsuyoshi Matsushima"],
     Inarizaki: [
         "Shinsuke Kita",
         "Ren Ōmimi",

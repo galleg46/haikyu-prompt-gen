@@ -90,6 +90,14 @@ import Sakurai from '../data/images/tokonami/Sakurai.webp';
 import Shibuya from '../data/images/tokonami/Shibuya.webp';
 import Tamagawa from '../data/images/tokonami/Tamagawa.webp';
 
+import Nakashima from '../data/images/wakutani_minami/nakashima.webp';
+import Shunki from '../data/images/wakutani_minami/Shunki.webp';
+import Hanayama from '../data/images/wakutani_minami/Hanayama.webp';
+import Shiroishi from '../data/images/wakutani_minami/Shiroishi.png';
+import Naruko from '../data/images/wakutani_minami/Naruko.webp';
+import Akiu from '../data/images/wakutani_minami/Akiu.webp';
+import Matsushima from '../data/images/wakutani_minami/Matsushima.webp';
+
 export const CharacterImageMap = {
     "Daichi Sawamura": Daichi,
     "Kōshi Sugawara": Sugawara,
@@ -173,5 +181,12 @@ export const CharacterImageMap = {
     "Hiroki Tamagawa": Tamagawa,
     "Yoshiharu Haga": Haga,
     "Rikuto Shibuya": Shibuya,
-    "Taiga Sakurai": Sakurai
+    "Taiga Sakurai": Sakurai,
+    "Takeru Nakashima": Nakashima,
+    "Shunki Kawatabi": Shunki,
+    "Kazumasa Hanayama": Hanayama,
+    "Yūki Shiroishi": Shiroishi,
+    "Teppei Naruko": Naruko,
+    "Kazuteru Akiu": Akiu,
+    "Tsuyoshi Matsushima": Matsushima,
 };
