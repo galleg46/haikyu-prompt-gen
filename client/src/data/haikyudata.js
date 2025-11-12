@@ -2,7 +2,7 @@
 
 export const Teams = ['Karasuno', 'Nekoma', 'Aoba Johsai', 'Date Tech', 'Fukurodani', 'Shiratorizawa',
                       'Johzenji', 'Tokonami', 'Wakutani Minami', 'Ohgiminami','Kakugawa', 'Ubugawa',
-                      'Shinzen', 'Nohebi', 'Inarizaki'];
+                      'Shinzen', 'Nohebi', 'Itachiyama', 'Inarizaki'];
 
 
 export const TeamPlayers = {
@@ -136,6 +136,10 @@ export const TeamPlayers = {
         "Sō Akama",
         "Akihiko Seguro",
         "Naoyasu Kuguri"],
+    Itachiyama: [
+        "Tsukasa Iizuna",
+        "Kiyoomi Sakusa",
+        "Motoya Komori"],
     Inarizaki: [
         "Shinsuke Kita",
         "Ren Ōmimi",

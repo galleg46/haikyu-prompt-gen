@@ -139,6 +139,10 @@ import Sakishima from '../data/images/nohebi/Sakishima.png';
 import Seguro from '../data/images/nohebi/Seguro.webp';
 import Takachiho from '../data/images/nohebi/Takachiho.webp';
 
+import Iizuna from '../data/images/itachiyama/Iizuna.jpg';
+import Sakusa from '../data/images/itachiyama/Sakusa.webp';
+import Komori from '../data/images/itachiyama/Komori.webp';
+
 export const CharacterImageMap = {
     "Daichi Sawamura": Daichi,
     "Kōshi Sugawara": Sugawara,
@@ -266,4 +270,7 @@ export const CharacterImageMap = {
     "Sō Akama": Akama,
     "Akihiko Seguro": Seguro,
     "Naoyasu Kuguri": Kuguri,
+    "Tsukasa Iizuna": Iizuna,
+    "Kiyoomi Sakusa": Sakusa,
+    "Motoya Komori": Komori
 };
