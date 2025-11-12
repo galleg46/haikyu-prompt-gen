@@ -130,6 +130,15 @@ import Ogano from '../data/images/shinzen/Ogano.png';
 import Shimafu from '../data/images/shinzen/Shimafu.png';
 import Yoshikawa from '../data/images/shinzen/Yoshikawa.png';
 
+import Akama from '../data/images/nohebi/Akama.png';
+import Daisho from '../data/images/nohebi/Daisho.webp';
+import Hiroo from '../data/images/nohebi/Hiroo.webp';
+import Kuguri from '../data/images/nohebi/Kuguri.png';
+import Numai from '../data/images/nohebi/Numai.webp';
+import Sakishima from '../data/images/nohebi/Sakishima.png';
+import Seguro from '../data/images/nohebi/Seguro.webp';
+import Takachiho from '../data/images/nohebi/Takachiho.webp';
+
 export const CharacterImageMap = {
     "Daichi Sawamura": Daichi,
     "Kōshi Sugawara": Sugawara,
@@ -248,5 +257,13 @@ export const CharacterImageMap = {
     "Eikichi Chigaya": Chigaya,
     "Masaru Kodama": Kodama,
     "Yū Akatani": Akatani,
-    "Kazutaka Yoshikawa": Yoshikawa
+    "Kazutaka Yoshikawa": Yoshikawa,
+    "Suguru Daishō": Daisho,
+    "Yoshiya Takachiho": Takachiho,
+    "Kazuma Numai": Numai,
+    "Kōji Hiroo": Hiroo,
+    "Isumi Sakishima": Sakishima,
+    "Sō Akama": Akama,
+    "Akihiko Seguro": Seguro,
+    "Naoyasu Kuguri": Kuguri,
 };
