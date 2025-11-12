@@ -122,6 +122,14 @@ import Nanasawa from '../data/images/ubugawa/Nanasawa.jpg';
 import Sengoku from '../data/images/ubugawa/Sengoku.jpg';
 import Yukawa from '../data/images/ubugawa/Yukawa.webp';
 
+import Akatani from '../data/images/shinzen/Akatani.webp';
+import Chigaya from '../data/images/shinzen/Chigaya.png';
+import Kodama from '../data/images/shinzen/Kodama.jpg';
+import Naguri from '../data/images/shinzen/Naguri.png';
+import Ogano from '../data/images/shinzen/Ogano.png';
+import Shimafu from '../data/images/shinzen/Shimafu.png';
+import Yoshikawa from '../data/images/shinzen/Yoshikawa.png';
+
 export const CharacterImageMap = {
     "Daichi Sawamura": Daichi,
     "Kōshi Sugawara": Sugawara,
@@ -233,5 +241,12 @@ export const CharacterImageMap = {
     "Shingo Sengoku": Sengoku,
     "Yūji Isehara": Isehara,
     "Kōji Yukawa": Yukawa,
-    "Toshimi Nakagawa": Nakagawa
+    "Toshimi Nakagawa": Nakagawa,
+    "Daiki Ogano": Ogano,
+    "Shōta Naguri": Naguri,
+    "Noriaki Shimafu": Shimafu,
+    "Eikichi Chigaya": Chigaya,
+    "Masaru Kodama": Kodama,
+    "Yū Akatani": Akatani,
+    "Kazutaka Yoshikawa": Yoshikawa
 };
