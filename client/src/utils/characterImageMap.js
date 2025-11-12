@@ -82,6 +82,67 @@ import Omimi from '../data/images/inarizaki/Ren_Omimi.webp';
 import Riseki from '../data/images/inarizaki/Riseki.webp';
 import Suna from '../data/images/inarizaki/Suna.webp';
 
+import Chaya from '../data/images/tokonami/Chaya.webp';
+import Haga from '../data/images/tokonami/Haga.webp';
+import Ikejiri from '../data/images/tokonami/Ikejiri.webp';
+import Komaki from '../data/images/tokonami/Komaki.webp';
+import Sakurai from '../data/images/tokonami/Sakurai.webp';
+import Shibuya from '../data/images/tokonami/Shibuya.webp';
+import Tamagawa from '../data/images/tokonami/Tamagawa.webp';
+
+import Nakashima from '../data/images/wakutani_minami/nakashima.webp';
+import Shunki from '../data/images/wakutani_minami/Shunki.webp';
+import Hanayama from '../data/images/wakutani_minami/Hanayama.webp';
+import Shiroishi from '../data/images/wakutani_minami/Shiroishi.png';
+import Naruko from '../data/images/wakutani_minami/Naruko.webp';
+import Akiu from '../data/images/wakutani_minami/Akiu.webp';
+import Matsushima from '../data/images/wakutani_minami/Matsushima.webp';
+
+import Karamatsu from '../data/images/ohgiminami/Karamatsu.webp';
+import Moritake from '../data/images/ohgiminami/Moritake.webp';
+import Natsuse from '../data/images/ohgiminami/Natsuse.png';
+import Oyasu from '../data/images/ohgiminami/Oyasu.webp';
+import Tazawa from '../data/images/ohgiminami/Tazawa.webp';
+import Towada from '../data/images/ohgiminami/Towada.webp';
+import Yokote from '../data/images/ohgiminami/Yokote.webp';
+
+import Asamushi from '../data/images/kakugawa/Asamushi.webp';
+import Hyakuzawa from '../data/images/kakugawa/Hyakuzawa.webp';
+import Inagaki from '../data/images/kakugawa/Inagaki.png';
+import Makado from '../data/images/kakugawa/Makado.webp';
+import Minamida from '../data/images/kakugawa/Minamida.png';
+import Nurukawa from '../data/images/kakugawa/Nurukawa.jpg';
+import Yuzuru_Komaki from '../data/images/kakugawa/Yuzuru_Komaki.webp';
+
+import Ashiya from '../data/images/ubugawa/Ashiya.jpg';
+import Gora from '../data/images/ubugawa/Gora.png';
+import Isehara from '../data/images/ubugawa/Isehara.webp';
+import Nakagawa from '../data/images/ubugawa/Nakagawa.png';
+import Nanasawa from '../data/images/ubugawa/Nanasawa.jpg';
+import Sengoku from '../data/images/ubugawa/Sengoku.jpg';
+import Yukawa from '../data/images/ubugawa/Yukawa.webp';
+
+import Akatani from '../data/images/shinzen/Akatani.webp';
+import Chigaya from '../data/images/shinzen/Chigaya.png';
+import Kodama from '../data/images/shinzen/Kodama.jpg';
+import Naguri from '../data/images/shinzen/Naguri.png';
+import Ogano from '../data/images/shinzen/Ogano.png';
+import Shimafu from '../data/images/shinzen/Shimafu.png';
+import Yoshikawa from '../data/images/shinzen/Yoshikawa.png';
+
+import Akama from '../data/images/nohebi/Akama.png';
+import Daisho from '../data/images/nohebi/Daisho.webp';
+import Hiroo from '../data/images/nohebi/Hiroo.webp';
+import Kuguri from '../data/images/nohebi/Kuguri.png';
+import Numai from '../data/images/nohebi/Numai.webp';
+import Sakishima from '../data/images/nohebi/Sakishima.png';
+import Seguro from '../data/images/nohebi/Seguro.webp';
+import Takachiho from '../data/images/nohebi/Takachiho.webp';
+
+import Iizuna from '../data/images/itachiyama/Iizuna.jpg';
+import Sakusa from '../data/images/itachiyama/Sakusa.webp';
+import Komori from '../data/images/itachiyama/Komori.webp';
+
 export const CharacterImageMap = {
     "Daichi Sawamura": Daichi,
     "Kōshi Sugawara": Sugawara,
@@ -158,5 +219,58 @@ export const CharacterImageMap = {
     "Osamu Miya": Osamu,
     "Yūto Kosaku": Kosaku,
     "Heisuke Riseki": Riseki,
-    "Michinari Akagi": Akagi
+    "Michinari Akagi": Akagi,
+    "Hikaru Komaki": Komaki,
+    "Kazuma Chaya": Chaya,
+    "Hayato Ikejiri": Ikejiri,
+    "Hiroki Tamagawa": Tamagawa,
+    "Yoshiharu Haga": Haga,
+    "Rikuto Shibuya": Shibuya,
+    "Taiga Sakurai": Sakurai,
+    "Takeru Nakashima": Nakashima,
+    "Shunki Kawatabi": Shunki,
+    "Kazumasa Hanayama": Hanayama,
+    "Yūki Shiroishi": Shiroishi,
+    "Teppei Naruko": Naruko,
+    "Kazuteru Akiu": Akiu,
+    "Tsuyoshi Matsushima": Matsushima,
+    "Yoshiki Towada": Towada,
+    "Takumi Karamatsu": Karamatsu,
+    "Yūki Tazawa": Tazawa,
+    "Ayumu Moritake": Moritake,
+    "Sōma Oyasu": Oyasu,
+    "Ibuki Natsuse": Natsuse,
+    "Shun Yokote": Yokote,
+    "Yoshiaki Nurukawa": Nurukawa,
+    "Eiji Makado": Makado,
+    "Kaito Asamushi": Asamushi,
+    "Yuzuru Komaki": Yuzuru_Komaki,
+    "Isao Inagaki": Inagaki,
+    "Yūdai Hyakuzawa": Hyakuzawa,
+    "Taishi Minamida": Minamida,
+    "Masaki Gōra": Gora,
+    "Yōhei Ashiya": Ashiya,
+    "Kengo Nanasawa": Nanasawa,
+    "Shingo Sengoku": Sengoku,
+    "Yūji Isehara": Isehara,
+    "Kōji Yukawa": Yukawa,
+    "Toshimi Nakagawa": Nakagawa,
+    "Daiki Ogano": Ogano,
+    "Shōta Naguri": Naguri,
+    "Noriaki Shimafu": Shimafu,
+    "Eikichi Chigaya": Chigaya,
+    "Masaru Kodama": Kodama,
+    "Yū Akatani": Akatani,
+    "Kazutaka Yoshikawa": Yoshikawa,
+    "Suguru Daishō": Daisho,
+    "Yoshiya Takachiho": Takachiho,
+    "Kazuma Numai": Numai,
+    "Kōji Hiroo": Hiroo,
+    "Isumi Sakishima": Sakishima,
+    "Sō Akama": Akama,
+    "Akihiko Seguro": Seguro,
+    "Naoyasu Kuguri": Kuguri,
+    "Tsukasa Iizuna": Iizuna,
+    "Kiyoomi Sakusa": Sakusa,
+    "Motoya Komori": Komori
 };

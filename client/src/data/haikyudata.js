@@ -1,7 +1,8 @@
 // TODO: have this data accessible via database calls
 
 export const Teams = ['Karasuno', 'Nekoma', 'Aoba Johsai', 'Date Tech', 'Fukurodani', 'Shiratorizawa',
-                       'Johzenji', 'Inarizaki'];
+                      'Johzenji', 'Tokonami', 'Wakutani Minami', 'Ohgiminami','Kakugawa', 'Ubugawa',
+                      'Shinzen', 'Nohebi', 'Itachiyama', 'Inarizaki'];
 
 
 export const TeamPlayers = {
@@ -78,6 +79,67 @@ export const TeamPlayers = {
         "Rintarō Numajiri",
         "Nobuyoshi Īzaka",
         "Arata Tsuchiyu"],
+    Tokonami: [
+        "Hikaru Komaki",
+        "Kazuma Chaya",
+        "Hayato Ikejiri",
+        "Hiroki Tamagawa",
+        "Yoshiharu Haga",
+        "Rikuto Shibuya",
+        "Taiga Sakurai"],
+    "Wakutani Minami": [
+        "Takeru Nakashima",
+        "Shunki Kawatabi",
+        "Kazumasa Hanayama",
+        "Yūki Shiroishi",
+        "Teppei Naruko",
+        "Kazuteru Akiu",
+        "Tsuyoshi Matsushima"],
+    Ohgiminami: [
+        "Yoshiki Towada",
+        "Takumi Karamatsu",
+        "Yūki Tazawa",
+        "Ayumu Moritake",
+        "Sōma Oyasu",
+        "Ibuki Natsuse",
+        "Shun Yokote"],
+    Kakugawa: [
+        "Yoshiaki Nurukawa",
+        "Eiji Makado",
+        "Kaito Asamushi",
+        "Yuzuru Komaki",
+        "Isao Inagaki",
+        "Yūdai Hyakuzawa",
+        "Taishi Minamida"],
+    Ubugawa: [
+        "Masaki Gōra",
+        "Yōhei Ashiya",
+        "Kengo Nanasawa",
+        "Shingo Sengoku",
+        "Yūji Isehara",
+        "Kōji Yukawa",
+        "Toshimi Nakagawa"],
+    Shinzen: [
+        "Daiki Ogano",
+        "Shōta Naguri",
+        "Noriaki Shimafu",
+        "Eikichi Chigaya",
+        "Masaru Kodama",
+        "Yū Akatani",
+        "Kazutaka Yoshikawa"],
+    Nohebi: [
+        "Suguru Daishō",
+        "Yoshiya Takachiho",
+        "Kazuma Numai",
+        "Kōji Hiroo",
+        "Isumi Sakishima",
+        "Sō Akama",
+        "Akihiko Seguro",
+        "Naoyasu Kuguri"],
+    Itachiyama: [
+        "Tsukasa Iizuna",
+        "Kiyoomi Sakusa",
+        "Motoya Komori"],
     Inarizaki: [
         "Shinsuke Kita",
         "Ren Ōmimi",
