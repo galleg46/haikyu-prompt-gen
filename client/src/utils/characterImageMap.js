@@ -154,6 +154,14 @@ import Mikawa from '../data/images/tsubakihara/Mikawa.png';
 import Teradomari from '../data/images/tsubakihara/Teradomari.webp';
 import Tsukioka from '../data/images/tsubakihara/Tsukioka.png';
 
+import Fukatani from '../data/images/sarukawa_tech/Fukatani.png';
+import Kanazawa from '../data/images/sarukawa_tech/Kanazawa.png';
+import Shiga from '../data/images/sarukawa_tech/Shiga.png';
+import Shiramine from '../data/images/sarukawa_tech/Shiramine.webp';
+import Wajima from '../data/images/sarukawa_tech/Wajima.png';
+import Wakura from '../data/images/sarukawa_tech/Wakura.webp';
+import Yamashiro from '../data/images/sarukawa_tech/Yamashiro.webp';
+
 export const CharacterImageMap = {
     "Daichi Sawamura": Daichi,
     "Kōshi Sugawara": Sugawara,
@@ -293,5 +301,12 @@ export const CharacterImageMap = {
     "Yoshitomo Atema": Atema,
     "Yūshi Maiko": Maiko,
     "Akifumi Kaikake": Kaikake,
-    "Aoi Himekawa": Himekawa
+    "Aoi Himekawa": Himekawa,
+    "Itaru Shiramine": Shiramine,
+    "Hisahiko Wakura": Wakura,
+    "Iori Kanazawa": Kanazawa,
+    "Tomonari Shiga": Shiga,
+    "Tomokazu Wajima": Wajima,
+    "Kenrō Fukatani": Fukatani,
+    "Sōji Yamashiro": Yamashiro
 };
