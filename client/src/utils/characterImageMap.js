@@ -143,6 +143,43 @@ import Iizuna from '../data/images/itachiyama/Iizuna.jpg';
 import Sakusa from '../data/images/itachiyama/Sakusa.webp';
 import Komori from '../data/images/itachiyama/Komori.webp';
 
+import Atema from '../data/images/tsubakihara/Atema.webp';
+import Echigo from '../data/images/tsubakihara/Echigo.png';
+import Himekawa from '../data/images/tsubakihara/Himekawa.png';
+import Iwamuro from '../data/images/tsubakihara/Iwamuro.png';
+import Kaikake from '../data/images/tsubakihara/Kaikake.png';
+import Maiko from '../data/images/tsubakihara/Maiko.png';
+import Maruyama from '../data/images/tsubakihara/Maruyama.webp';
+import Mikawa from '../data/images/tsubakihara/Mikawa.png';
+import Teradomari from '../data/images/tsubakihara/Teradomari.webp';
+import Tsukioka from '../data/images/tsubakihara/Tsukioka.png';
+
+import Fukatani from '../data/images/sarukawa_tech/Fukatani.png';
+import Kanazawa from '../data/images/sarukawa_tech/Kanazawa.png';
+import Shiga from '../data/images/sarukawa_tech/Shiga.png';
+import Shiramine from '../data/images/sarukawa_tech/Shiramine.webp';
+import Wajima from '../data/images/sarukawa_tech/Wajima.png';
+import Wakura from '../data/images/sarukawa_tech/Wakura.webp';
+import Yamashiro from '../data/images/sarukawa_tech/Yamashiro.webp';
+
+import Bishin from '../data/images/mujinazaka/Bishin.webp';
+import Ezota from '../data/images/mujinazaka/Ezota.webp';
+import Hondo from '../data/images/mujinazaka/Hondo.png';
+import Kiryu from '../data/images/mujinazaka/Kiryu.webp';
+import Mami from '../data/images/mujinazaka/Mami.png';
+import Unnan from '../data/images/mujinazaka/Unnan.webp';
+import Usuri from '../data/images/mujinazaka/Usuri.webp';
+
+import Bessho from '../data/images/komomedai/Bessho.webp';
+import Hakuba from '../data/images/komomedai/Hakuba.png';
+import Hirugami from '../data/images/komomedai/Hirugami.png';
+import Hoshiumi from '../data/images/komomedai/Hoshiumi.png';
+import Kanbayashi from '../data/images/komomedai/Kanbayashi.webp';
+import Norikura from '../data/images/komomedai/Norikura.webp';
+import Nozawa from '../data/images/komomedai/Nozawa.webp';
+import Suwa from '../data/images/komomedai/Suwa.webp';
+import Tokura from '../data/images/komomedai/Tokura.webp';
+
 export const CharacterImageMap = {
     "Daichi Sawamura": Daichi,
     "Kōshi Sugawara": Sugawara,
@@ -272,5 +309,38 @@ export const CharacterImageMap = {
     "Naoyasu Kuguri": Kuguri,
     "Tsukasa Iizuna": Iizuna,
     "Kiyoomi Sakusa": Sakusa,
-    "Motoya Komori": Komori
+    "Motoya Komori": Komori,
+    "Kazuki Maruyama": Maruyama,
+    "Sakae Echigo": Echigo,
+    "Chiharu Tsukioka": Tsukioka,
+    "Motoki Teradomari": Teradomari,
+    "Dai Mikawa": Mikawa,
+    "Tōgo Iwamuro": Iwamuro,
+    "Yoshitomo Atema": Atema,
+    "Yūshi Maiko": Maiko,
+    "Akifumi Kaikake": Kaikake,
+    "Aoi Himekawa": Himekawa,
+    "Itaru Shiramine": Shiramine,
+    "Hisahiko Wakura": Wakura,
+    "Iori Kanazawa": Kanazawa,
+    "Tomonari Shiga": Shiga,
+    "Tomokazu Wajima": Wajima,
+    "Kenrō Fukatani": Fukatani,
+    "Sōji Yamashiro": Yamashiro,
+    "Wakatsu Kiryū": Kiryu,
+    "Nozomu Mami": Mami,
+    "Keisuke Unnan": Unnan,
+    "Naoharu Ezota": Ezota,
+    "Michiru Usuri": Usuri,
+    "Subaru Hondo": Hondo,
+    "Haruma Bishin": Bishin,
+    "Aikichi Suwa": Suwa,
+    "Izuru Nozawa": Nozawa,
+    "Kōrai Hoshiumi": Hoshiumi,
+    "Sachirō Hirugami": Hirugami,
+    "Isao Norikura": Norikura,
+    "Kazuyoshi Bessho": Bessho,
+    "Gao Hakuba": Hakuba,
+    "Liam Tokura": Tokura,
+    "Keiichirō Kanbayashi": Kanbayashi
 };
