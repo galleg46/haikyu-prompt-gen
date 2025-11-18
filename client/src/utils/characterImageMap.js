@@ -143,6 +143,17 @@ import Iizuna from '../data/images/itachiyama/Iizuna.jpg';
 import Sakusa from '../data/images/itachiyama/Sakusa.webp';
 import Komori from '../data/images/itachiyama/Komori.webp';
 
+import Atema from '../data/images/tsubakihara/Atema.webp';
+import Echigo from '../data/images/tsubakihara/Echigo.png';
+import Himekawa from '../data/images/tsubakihara/Himekawa.png';
+import Iwamuro from '../data/images/tsubakihara/Iwamuro.png';
+import Kaikake from '../data/images/tsubakihara/Kaikake.png';
+import Maiko from '../data/images/tsubakihara/Maiko.png';
+import Maruyama from '../data/images/tsubakihara/Maruyama.webp';
+import Mikawa from '../data/images/tsubakihara/Mikawa.png';
+import Teradomari from '../data/images/tsubakihara/Teradomari.webp';
+import Tsukioka from '../data/images/tsubakihara/Tsukioka.png';
+
 export const CharacterImageMap = {
     "Daichi Sawamura": Daichi,
     "Kōshi Sugawara": Sugawara,
@@ -272,5 +283,15 @@ export const CharacterImageMap = {
     "Naoyasu Kuguri": Kuguri,
     "Tsukasa Iizuna": Iizuna,
     "Kiyoomi Sakusa": Sakusa,
-    "Motoya Komori": Komori
+    "Motoya Komori": Komori,
+    "Kazuki Maruyama": Maruyama,
+    "Sakae Echigo": Echigo,
+    "Chiharu Tsukioka": Tsukioka,
+    "Motoki Teradomari": Teradomari,
+    "Dai Mikawa": Mikawa,
+    "Tōgo Iwamuro": Iwamuro,
+    "Yoshitomo Atema": Atema,
+    "Yūshi Maiko": Maiko,
+    "Akifumi Kaikake": Kaikake,
+    "Aoi Himekawa": Himekawa
 };
