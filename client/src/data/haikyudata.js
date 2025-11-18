@@ -2,7 +2,8 @@
 
 export const Teams = ['Karasuno', 'Nekoma', 'Aoba Johsai', 'Date Tech', 'Fukurodani', 'Shiratorizawa',
                       'Johzenji', 'Tokonami', 'Wakutani Minami', 'Ohgiminami','Kakugawa', 'Ubugawa',
-                      'Shinzen', 'Nohebi', 'Itachiyama', 'Tsubakihara', 'Sarukawa Tech', 'Inarizaki'];
+                      'Shinzen', 'Nohebi', 'Itachiyama', 'Tsubakihara', 'Inarizaki', 'Sarukawa Tech',
+                      'Mujinazaka', 'Komomedai'];
 
 
 export const TeamPlayers = {
@@ -151,14 +152,6 @@ export const TeamPlayers = {
         "Yūshi Maiko",
         "Akifumi Kaikake",
         "Aoi Himekawa"],
-    "Sarukawa Tech": [
-        "Itaru Shiramine",
-        "Hisahiko Wakura",
-        "Iori Kanazawa",
-        "Tomonari Shiga",
-        "Tomokazu Wajima",
-        "Kenrō Fukatani",
-        "Sōji Yamashiro"],
     Inarizaki: [
         "Shinsuke Kita",
         "Ren Ōmimi",
@@ -169,7 +162,24 @@ export const TeamPlayers = {
         "Osamu Miya",
         "Yūto Kosaku",
         "Heisuke Riseki",
-        "Michinari Akagi"]
+        "Michinari Akagi"],
+    "Sarukawa Tech": [
+        "Itaru Shiramine",
+        "Hisahiko Wakura",
+        "Iori Kanazawa",
+        "Tomonari Shiga",
+        "Tomokazu Wajima",
+        "Kenrō Fukatani",
+        "Sōji Yamashiro"],
+    Mujinazaka: [
+        "Wakatsu Kiryū",
+        "Nozomu Mami",
+        "Keisuke Unnan",
+        "Naoharu Ezota",
+        "Michiru Usuri",
+        "Subaru Hondo",
+        "Haruma Bishin"],
+    Komomedai:[]
 };
 
 

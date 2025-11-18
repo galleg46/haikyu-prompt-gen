@@ -162,6 +162,14 @@ import Wajima from '../data/images/sarukawa_tech/Wajima.png';
 import Wakura from '../data/images/sarukawa_tech/Wakura.webp';
 import Yamashiro from '../data/images/sarukawa_tech/Yamashiro.webp';
 
+import Bishin from '../data/images/mujinazaka/Bishin.webp';
+import Ezota from '../data/images/mujinazaka/Ezota.webp';
+import Hondo from '../data/images/mujinazaka/Hondo.png';
+import Kiryu from '../data/images/mujinazaka/Kiryu.webp';
+import Mami from '../data/images/mujinazaka/Mami.png';
+import Unnan from '../data/images/mujinazaka/Unnan.webp';
+import Usuri from '../data/images/mujinazaka/Usuri.webp';
+
 export const CharacterImageMap = {
     "Daichi Sawamura": Daichi,
     "Kōshi Sugawara": Sugawara,
@@ -308,5 +316,12 @@ export const CharacterImageMap = {
     "Tomonari Shiga": Shiga,
     "Tomokazu Wajima": Wajima,
     "Kenrō Fukatani": Fukatani,
-    "Sōji Yamashiro": Yamashiro
+    "Sōji Yamashiro": Yamashiro,
+    "Wakatsu Kiryū": Kiryu,
+    "Nozomu Mami": Mami,
+    "Keisuke Unnan": Unnan,
+    "Naoharu Ezota": Ezota,
+    "Michiru Usuri": Usuri,
+    "Subaru Hondo": Hondo,
+    "Haruma Bishin": Bishin
 };
