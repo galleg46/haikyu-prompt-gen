@@ -170,6 +170,16 @@ import Mami from '../data/images/mujinazaka/Mami.png';
 import Unnan from '../data/images/mujinazaka/Unnan.webp';
 import Usuri from '../data/images/mujinazaka/Usuri.webp';
 
+import Bessho from '../data/images/komomedai/Bessho.webp';
+import Hakuba from '../data/images/komomedai/Hakuba.png';
+import Hirugami from '../data/images/komomedai/Hirugami.png';
+import Hoshiumi from '../data/images/komomedai/Hoshiumi.png';
+import Kanbayashi from '../data/images/komomedai/Kanbayashi.webp';
+import Norikura from '../data/images/komomedai/Norikura.webp';
+import Nozawa from '../data/images/komomedai/Nozawa.webp';
+import Suwa from '../data/images/komomedai/Suwa.webp';
+import Tokura from '../data/images/komomedai/Tokura.webp';
+
 export const CharacterImageMap = {
     "Daichi Sawamura": Daichi,
     "Kōshi Sugawara": Sugawara,
@@ -323,5 +333,14 @@ export const CharacterImageMap = {
     "Naoharu Ezota": Ezota,
     "Michiru Usuri": Usuri,
     "Subaru Hondo": Hondo,
-    "Haruma Bishin": Bishin
+    "Haruma Bishin": Bishin,
+    "Aikichi Suwa": Suwa,
+    "Izuru Nozawa": Nozawa,
+    "Kōrai Hoshiumi": Hoshiumi,
+    "Sachirō Hirugami": Hirugami,
+    "Isao Norikura": Norikura,
+    "Kazuyoshi Bessho": Bessho,
+    "Gao Hakuba": Hakuba,
+    "Liam Tokura": Tokura,
+    "Keiichirō Kanbayashi": Kanbayashi
 };

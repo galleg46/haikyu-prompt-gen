@@ -179,7 +179,16 @@ export const TeamPlayers = {
         "Michiru Usuri",
         "Subaru Hondo",
         "Haruma Bishin"],
-    Komomedai:[]
+    Komomedai:[
+        "Aikichi Suwa",
+        "Izuru Nozawa",
+        "Kōrai Hoshiumi",
+        "Sachirō Hirugami",
+        "Isao Norikura",
+        "Kazuyoshi Bessho",
+        "Gao Hakuba",
+        "Liam Tokura",
+        "Keiichirō Kanbayashi"]
 };
 
 
