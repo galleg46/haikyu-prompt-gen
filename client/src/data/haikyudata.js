@@ -8,18 +8,19 @@ export const Teams = ['Karasuno', 'Nekoma', 'Aoba Johsai', 'Date Tech', 'Fukurod
 
 export const TeamPlayers = {
     Karasuno: [
-        "Daichi Sawamura",
-        "Kōshi Sugawara",
-        "Asahi Azumane",
-        "Yū Nishinoya",
-        "Ryūnosuke Tanaka",
-        "Chikara Ennoshita",
-        "Hisashi Kinoshita",
-        "Kazuhito Narita",
-        "Tobio Kageyama",
-        "Shōyō Hinata",
-        "Kei Tsukishima",
-        "Tadashi Yamaguchi"],
+        { name: "Daichi Sawamura", isAnimated: true, isSideCharacter: false },
+        { name: "Kōshi Sugawara", isAnimated: true, isSideCharacter: false },
+        { name: "Asahi Azumane", isAnimated: true, isSideCharacter: false },
+        { name: "Yū Nishinoya", isAnimated: true, isSideCharacter: false },
+        { name: "Ryūnosuke Tanaka", isAnimated: true, isSideCharacter: false },
+        { name: "Chikara Ennoshita", isAnimated: true, isSideCharacter: true }, //TODO: double check with Klara
+        { name: "Hisashi Kinoshita", isAnimated: true, isSideCharacter: true },
+        { name: "Kazuhito Narita", isAnimated: true, isSideCharacter: true },
+        { name: "Tobio Kageyama", isAnimated: true, isSideCharacter: false },
+        { name: "Shōyō Hinata", isAnimated: true, isSideCharacter: false },
+        { name: "Kei Tsukishima", isAnimated: true, isSideCharacter: false },
+        { name: "Tadashi Yamaguchi", isAnimated: true, isSideCharacter: false }
+    ],
     Nekoma: [
         "Tetsurō Kuroo",
         "Nobuyuki Kai",
