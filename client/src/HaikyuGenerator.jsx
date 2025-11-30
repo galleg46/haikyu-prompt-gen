@@ -45,12 +45,20 @@ function HaikyuGenerator() {
 
             const teamObj = {};
             Teams.forEach((team) => {
-                teamObj[team] = [ ...(TeamPlayers[team] || [])]; // all characters pre-selected by default
+                teamObj[team] = [
+                    ...(TeamPlayers[team]
+                        ?.filter(p => !p.isSideCharacter) // only MAIN characters are selected by default
+                        ?.map(p => p.name)
+                        || [])
+                ];
             });
 
             return teamObj;
         })
     );
+
+    const [showAnimatedOnly, setShowAnimatedOnly] = useState(false);
+    const [showSideCharacters, setShowSideCharacters] = useState(false);
 
     // store which teams are expanded to show children
     const [expandedTeams, setExpandedTeams] = useState(
@@ -119,7 +127,7 @@ function HaikyuGenerator() {
 
                     // TeamPlayers keys may not match spacing/casing
                     // try direct, then fallback to space-free key
-                    return TeamPlayers[teamName] || TeamPlayers[teamName.replace(/\s+/g, '')] || [];
+                    return (TeamPlayers[teamName] || TeamPlayers[teamName.replace(/\s+/g, '')] || []).map(p => p.name);
                 });
 
                 result[col.label] = pickRandom(playerPool) || 'No players available';
@@ -180,6 +188,28 @@ function HaikyuGenerator() {
                 >
                     Clear selections
                 </Button>
+            </Box>
+            <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2, mb: 2, gap: 2 }}>
+                <FormControlLabel
+                    control={
+                        <Checkbox
+                            size="small"
+                            checked={showAnimatedOnly}
+                            onChange={(event) => setShowAnimatedOnly(event.target.checked)}
+                        />
+                    }
+                    label="Show Animated Characters Only"
+                />
+                <FormControlLabel
+                    control={
+                        <Checkbox
+                            size="small"
+                            checked={showSideCharacters}
+                            onChange={(event) => setShowSideCharacters(event.target.checked)}
+                        />
+                    }
+                    label="Show Side Characters"
+                />
             </Box>
 
             <div className="columns-container">
@@ -243,7 +273,12 @@ function HaikyuGenerator() {
 
                                                 {selectedItems[colIndex].includes(team) && expandedTeams[colIndex]?.[team] && (
                                                     <FormGroup sx={{ pl: 4, mt: 0.5 }}>
-                                                        {(TeamPlayers[team].sort() || []).map((char) => (
+                                                        {(TeamPlayers[team]
+                                                            ?.filter(p => !showAnimatedOnly || p.isAnimated)
+                                                            ?.filter(p => showSideCharacters || !p.isSideCharacter)
+                                                            ?.map(p => p.name)
+                                                            ?.sort() || []
+                                                        ).map((char) => (
                                                             <FormControlLabel
                                                                 key={char}
                                                                 control={
