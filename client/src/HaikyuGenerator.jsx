@@ -123,14 +123,32 @@ function HaikyuGenerator() {
                 // get the character pool for selected teams
                 const playerPool = teamsToUse.flatMap((teamName) => {
                     const selectedCharsForTeam = selectedCharacters[index]?.[teamName];
-                    if (selectedCharsForTeam && selectedCharsForTeam.length > 0) return selectedCharsForTeam;
+
+                    if (selectedCharsForTeam && selectedCharsForTeam.length > 0) {
+                        return selectedCharsForTeam.filter(name => {
+                            if (!showSideCharacters) {
+                                const playerObj = TeamPlayers[teamName].find(p => p.name === name);
+                                return !playerObj?.isSideCharacter; // exclude side characters if 'Include Side Characters' toggle is OFF
+                            }
+                            return true; // include everyone if 'Include Side Characters' toggle is ON
+                        });
+                    }
 
                     // TeamPlayers keys may not match spacing/casing
                     // try direct, then fallback to space-free key
-                    return (TeamPlayers[teamName] || TeamPlayers[teamName.replace(/\s+/g, '')] || []).map(p => p.name);
+                    return (TeamPlayers[teamName] || TeamPlayers[teamName.replace(/\s+/g, '')] || [])
+                        .map(p => p.name)
+                        .filter(name =>{
+                            if (!showSideCharacters) {
+                                const playerObj = TeamPlayers[teamName].find(p => p.name === name);
+                                return !playerObj?.isSideCharacter;
+                            }
+                            return true;
+                        });
                 });
 
                 result[col.label] = pickRandom(playerPool) || 'No players available';
+
             } else if (col.type === 'list') {
                 const listSource = col.list || [];
                 const pool = selectedItems[index].length ? selectedItems[index] : listSource;
@@ -208,7 +226,7 @@ function HaikyuGenerator() {
                             onChange={(event) => setShowSideCharacters(event.target.checked)}
                         />
                     }
-                    label="Show Side Characters"
+                    label="Include Side Characters"
                 />
             </Box>
 
