@@ -47,8 +47,10 @@ function HaikyuGenerator() {
             Teams.forEach((team) => {
                 teamObj[team] = [
                     ...(TeamPlayers[team]
-                        ?.filter(p => !p.isSideCharacter) // only MAIN characters are selected by default
-                        ?.map(p => p.name)
+                            //?.filter(p => !p.isSideCharacter) // only MAIN characters are selected by default TODO: uncomment when this filter is implemented correctly
+                            ?.filter(p => p.isAnimated) // only characters who ARE animated are selected by default
+                            ?.map(p => p.name)
+
                         || [])
                 ];
             });
@@ -57,7 +59,7 @@ function HaikyuGenerator() {
         })
     );
 
-    const [showAnimatedOnly, setShowAnimatedOnly] = useState(false);
+    const [showNonAnimated, setShowNonAnimated] = useState(false);
     const [showSideCharacters, setShowSideCharacters] = useState(false);
 
     // store which teams are expanded to show children
@@ -126,10 +128,12 @@ function HaikyuGenerator() {
 
                     if (selectedCharsForTeam && selectedCharsForTeam.length > 0) {
                         return selectedCharsForTeam.filter(name => {
-                            if (!showSideCharacters) {
-                                const playerObj = TeamPlayers[teamName].find(p => p.name === name);
-                                return !playerObj?.isSideCharacter; // exclude side characters if 'Include Side Characters' toggle is OFF
-                            }
+                            const playerObj = TeamPlayers[teamName].find(p => p.name === name);
+
+                            //if (!showSideCharacters && playerObj?.isSideCharacter) return false; // exclude side characters if 'Include Side Characters' toggle is OFF TODO: uncomment when filter is implemented correctly
+
+                            if (!showNonAnimated && !playerObj?.isAnimated) return false; // exclude non-animated characters
+
                             return true; // include everyone if 'Include Side Characters' toggle is ON
                         });
                     }
@@ -138,11 +142,13 @@ function HaikyuGenerator() {
                     // try direct, then fallback to space-free key
                     return (TeamPlayers[teamName] || TeamPlayers[teamName.replace(/\s+/g, '')] || [])
                         .map(p => p.name)
-                        .filter(name =>{
-                            if (!showSideCharacters) {
-                                const playerObj = TeamPlayers[teamName].find(p => p.name === name);
-                                return !playerObj?.isSideCharacter;
-                            }
+                        .filter(name => {
+                            const playerObj = TeamPlayers[teamName].find(p => p.name === name);
+
+                            //if (!showSideCharacters && playerObj?.isSideCharacter) return false; TODO: uncomment when filter is implemented correctly
+
+                            if (!showNonAnimated && !playerObj?.isAnimated) return false;
+
                             return true;
                         });
                 });
@@ -212,13 +218,13 @@ function HaikyuGenerator() {
                     control={
                         <Checkbox
                             size="small"
-                            checked={showAnimatedOnly}
-                            onChange={(event) => setShowAnimatedOnly(event.target.checked)}
+                            checked={showNonAnimated}
+                            onChange={(event) => setShowNonAnimated(event.target.checked)}
                         />
                     }
-                    label="Show Animated Characters Only"
+                    label="Include Non-Animated Characters"
                 />
-                <FormControlLabel
+                {/*<FormControlLabel TODO: uncomment when filter is implemented correctly
                     control={
                         <Checkbox
                             size="small"
@@ -227,7 +233,7 @@ function HaikyuGenerator() {
                         />
                     }
                     label="Include Side Characters"
-                />
+                />*/}
             </Box>
 
             <div className="columns-container">
@@ -292,8 +298,8 @@ function HaikyuGenerator() {
                                                 {selectedItems[colIndex].includes(team) && expandedTeams[colIndex]?.[team] && (
                                                     <FormGroup sx={{ pl: 4, mt: 0.5 }}>
                                                         {(TeamPlayers[team]
-                                                            ?.filter(p => !showAnimatedOnly || p.isAnimated)
-                                                            ?.filter(p => showSideCharacters || !p.isSideCharacter)
+                                                            ?.filter(p => showNonAnimated || p.isAnimated)
+                                                                //?.filter(p => showSideCharacters || !p.isSideCharacter) TODO: uncomment when filter is implemented correctly
                                                             ?.map(p => p.name)
                                                             ?.sort() || []
                                                         ).map((char) => (
