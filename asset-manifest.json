@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/haikyu-prompt-gen/static/css/main.3e986373.css",
-    "main.js": "/haikyu-prompt-gen/static/js/main.8d247496.js",
+    "main.js": "/haikyu-prompt-gen/static/js/main.bf56b3c9.js",
     "static/js/453.46dc3e92.chunk.js": "/haikyu-prompt-gen/static/js/453.46dc3e92.chunk.js",
     "static/media/Inagaki.png": "/haikyu-prompt-gen/static/media/Inagaki.182243693a692c40e6c0.png",
     "static/media/Akama.png": "/haikyu-prompt-gen/static/media/Akama.4184fd49e81156c5c362.png",
@@ -160,11 +160,11 @@
     "static/media/Aran.webp": "/haikyu-prompt-gen/static/media/Aran.6c5ad99333c987f266c0.webp",
     "index.html": "/haikyu-prompt-gen/index.html",
     "main.3e986373.css.map": "/haikyu-prompt-gen/static/css/main.3e986373.css.map",
-    "main.8d247496.js.map": "/haikyu-prompt-gen/static/js/main.8d247496.js.map",
+    "main.bf56b3c9.js.map": "/haikyu-prompt-gen/static/js/main.bf56b3c9.js.map",
     "453.46dc3e92.chunk.js.map": "/haikyu-prompt-gen/static/js/453.46dc3e92.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.3e986373.css",
-    "static/js/main.8d247496.js"
+    "static/js/main.bf56b3c9.js"
   ]
 }
