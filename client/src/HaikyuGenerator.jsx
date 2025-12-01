@@ -60,7 +60,7 @@ function HaikyuGenerator() {
     );
 
     const [showNonAnimated, setShowNonAnimated] = useState(false);
-    const [showSideCharacters, setShowSideCharacters] = useState(false);
+    //const [showSideCharacters, setShowSideCharacters] = useState(false); TODO: uncomment when this filter is implemented correctly
 
     // store which teams are expanded to show children
     const [expandedTeams, setExpandedTeams] = useState(
@@ -168,7 +168,7 @@ function HaikyuGenerator() {
     return (
         <Box sx={{ p: 2, height: '100vh', overflow: 'auto', backgroundColor: '#54495c' }}>
             <Box sx={{ mt: 3 }}>
-                <Typography align="center" variant="h5" sx={{ color: 'white'}}>Generate pairing</Typography>
+                <Typography align="center" variant="h5" sx={{ color: 'white' }}>Generate pairing</Typography>
                 <Paper sx={{ p: 2, mt: 1, mx: 'auto', textAlign: 'center', maxWidth: 400, whiteSpace: 'pre-wrap' }}>
                     {lastResult ? (
                         <>
@@ -217,12 +217,13 @@ function HaikyuGenerator() {
                 <FormControlLabel
                     control={
                         <Checkbox
+                            sx={{ color: 'white'}}
                             size="small"
                             checked={showNonAnimated}
                             onChange={(event) => setShowNonAnimated(event.target.checked)}
                         />
                     }
-                    label="Include Non-Animated Characters"
+                    label={ <Typography align="center" sx={{ color: 'white' }}>Include Non-Animated Characters</Typography> }
                 />
                 {/*<FormControlLabel TODO: uncomment when filter is implemented correctly
                     control={
