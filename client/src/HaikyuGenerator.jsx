@@ -45,12 +45,22 @@ function HaikyuGenerator() {
 
             const teamObj = {};
             Teams.forEach((team) => {
-                teamObj[team] = [ ...(TeamPlayers[team] || [])]; // all characters pre-selected by default
+                teamObj[team] = [
+                    ...(TeamPlayers[team]
+                            //?.filter(p => !p.isSideCharacter) // only MAIN characters are selected by default TODO: uncomment when this filter is implemented correctly
+                            ?.filter(p => p.isAnimated) // only characters who ARE animated are selected by default
+                            ?.map(p => p.name)
+
+                        || [])
+                ];
             });
 
             return teamObj;
         })
     );
+
+    const [showNonAnimated, setShowNonAnimated] = useState(false);
+    //const [showSideCharacters, setShowSideCharacters] = useState(false); TODO: uncomment when this filter is implemented correctly
 
     // store which teams are expanded to show children
     const [expandedTeams, setExpandedTeams] = useState(
@@ -115,14 +125,36 @@ function HaikyuGenerator() {
                 // get the character pool for selected teams
                 const playerPool = teamsToUse.flatMap((teamName) => {
                     const selectedCharsForTeam = selectedCharacters[index]?.[teamName];
-                    if (selectedCharsForTeam && selectedCharsForTeam.length > 0) return selectedCharsForTeam;
+
+                    if (selectedCharsForTeam && selectedCharsForTeam.length > 0) {
+                        return selectedCharsForTeam.filter(name => {
+                            const playerObj = TeamPlayers[teamName].find(p => p.name === name);
+
+                            //if (!showSideCharacters && playerObj?.isSideCharacter) return false; // exclude side characters if 'Include Side Characters' toggle is OFF TODO: uncomment when filter is implemented correctly
+
+                            if (!showNonAnimated && !playerObj?.isAnimated) return false; // exclude non-animated characters
+
+                            return true; // include everyone if 'Include Side Characters' toggle is ON
+                        });
+                    }
 
                     // TeamPlayers keys may not match spacing/casing
                     // try direct, then fallback to space-free key
-                    return TeamPlayers[teamName] || TeamPlayers[teamName.replace(/\s+/g, '')] || [];
+                    return (TeamPlayers[teamName] || TeamPlayers[teamName.replace(/\s+/g, '')] || [])
+                        .map(p => p.name)
+                        .filter(name => {
+                            const playerObj = TeamPlayers[teamName].find(p => p.name === name);
+
+                            //if (!showSideCharacters && playerObj?.isSideCharacter) return false; TODO: uncomment when filter is implemented correctly
+
+                            if (!showNonAnimated && !playerObj?.isAnimated) return false;
+
+                            return true;
+                        });
                 });
 
                 result[col.label] = pickRandom(playerPool) || 'No players available';
+
             } else if (col.type === 'list') {
                 const listSource = col.list || [];
                 const pool = selectedItems[index].length ? selectedItems[index] : listSource;
@@ -136,7 +168,7 @@ function HaikyuGenerator() {
     return (
         <Box sx={{ p: 2, height: '100vh', overflow: 'auto', backgroundColor: '#54495c' }}>
             <Box sx={{ mt: 3 }}>
-                <Typography align="center" variant="h5" sx={{ color: 'white'}}>Generate pairing</Typography>
+                <Typography align="center" variant="h5" sx={{ color: 'white' }}>Generate pairing</Typography>
                 <Paper sx={{ p: 2, mt: 1, mx: 'auto', textAlign: 'center', maxWidth: 400, whiteSpace: 'pre-wrap' }}>
                     {lastResult ? (
                         <>
@@ -180,6 +212,29 @@ function HaikyuGenerator() {
                 >
                     Clear selections
                 </Button>
+            </Box>
+            <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2, mb: 2, gap: 2 }}>
+                <FormControlLabel
+                    control={
+                        <Checkbox
+                            sx={{ color: 'white'}}
+                            size="small"
+                            checked={showNonAnimated}
+                            onChange={(event) => setShowNonAnimated(event.target.checked)}
+                        />
+                    }
+                    label={ <Typography align="center" sx={{ color: 'white' }}>Include Non-Animated Characters</Typography> }
+                />
+                {/*<FormControlLabel TODO: uncomment when filter is implemented correctly
+                    control={
+                        <Checkbox
+                            size="small"
+                            checked={showSideCharacters}
+                            onChange={(event) => setShowSideCharacters(event.target.checked)}
+                        />
+                    }
+                    label="Include Side Characters"
+                />*/}
             </Box>
 
             <div className="columns-container">
@@ -243,7 +298,12 @@ function HaikyuGenerator() {
 
                                                 {selectedItems[colIndex].includes(team) && expandedTeams[colIndex]?.[team] && (
                                                     <FormGroup sx={{ pl: 4, mt: 0.5 }}>
-                                                        {(TeamPlayers[team].sort() || []).map((char) => (
+                                                        {(TeamPlayers[team]
+                                                            ?.filter(p => showNonAnimated || p.isAnimated)
+                                                                //?.filter(p => showSideCharacters || !p.isSideCharacter) TODO: uncomment when filter is implemented correctly
+                                                            ?.map(p => p.name)
+                                                            ?.sort() || []
+                                                        ).map((char) => (
                                                             <FormControlLabel
                                                                 key={char}
                                                                 control={
